@@ -90,6 +90,7 @@
 .icon-circles:before { content: "\e669"; }
 .icon-vk:before { content: "\e66a"; }
 .icon-smashing:before { content: "\e66b"; }
+.icon-gitee:before { content: "\47"; }
 
 .fs0 {
 	font-size: 16px;
