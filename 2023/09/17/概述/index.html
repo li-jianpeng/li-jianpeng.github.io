@@ -160,12 +160,34 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>简述在Hexo撰写一篇文章,以及写文章可能会用到的参数指令.<br>这个是文章正文，如果你想插入超链接可以<a target="_blank" rel="noopener" href="https://baidu.com/">百度</a>.</p>
-<h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><p>标题写法：#代表文字等级，与Html中的H1标签用法类似，不过后者是以数字大小决定内容大小，前者则是数量决定文字大小.<br>没有一级标题是因为确实文字太大了没有必要，与文章开头的’概述’二字大小相似。</p>
-<p>发起一篇新的文章，可用如下指令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;NewText&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p></br>此时你可以在 source&#x2F;_post 下找到这个名为NewText.md的文件.</p>
+      		<p>简述在Hexo撰写一篇文章,以及写文章可能会用到的参数指令.</p>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>#放在标题前面，中间有个空格<br>与Html中的H1标签用法类似，不过后者是以数字大小决定内容大小，前者则是数量决定文字大小<br>最多可以支持6个</p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>有序列表:1. 2. 3.<br>无序列表:*+- 文本,符号与文本中间插入空格</p>
+<ul>
+<li>效果，三者都是一样的</li>
+</ul>
+<h3 id="代码文本"><a href="#代码文本" class="headerlink" title="代码文本"></a>代码文本</h3><p>使用 `&#96;&#96; 代码语言<br>中间键入代码<br>结束时最后起一行&#96;&#96;&#96;即可</p>
+<pre><code class="C#">if(imok)
+   hollow world!
+</code></pre>
+<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><p>[文本](链接)<br><a target="_blank" rel="noopener" href="https://baidu.com/">百度</a></p>
+<h3 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h3><p>插入图片的方法:!<a href="/images/1.jpeg" title="这是一个图片？">图片</a><br><img src="/images/1.jpg" alt="图片" title="这是一个图片？"></p>
+<h3 id="强调文本"><a href="#强调文本" class="headerlink" title="强调文本"></a>强调文本</h3><p>在字两边加一个*为 <em>斜体</em><br>在字两边加两个**为 <strong>粗体</strong><br>在字两边加三个***为 <em><strong>粗斜体</strong></em><br>不要有空格</p>
+<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>连续三个下划线或减号</p>
+<hr>
+<h3 id="特殊符号插入"><a href="#特殊符号插入" class="headerlink" title="特殊符号插入"></a>特殊符号插入</h3><p>\斜杠一个再特殊符号前面即可</p>
+<h3 id="页内跳转"><a href="#页内跳转" class="headerlink" title="页内跳转"></a>页内跳转</h3><p>在要跳转到的位置&lt;span id &#x3D; “jump”&gt;目标点</span>\，然后使用[出发点](#jump)将你好设置为一单击即跳转到WORLD所在位置的效果<br><a href="#letsgo">点一下我</a></p>
+<h3 id="居中居右居左"><a href="#居中居右居左" class="headerlink" title="居中居右居左"></a>居中居右居左</h3><p>居中&lt;center&gt;文本&lt;&#x2F;center&gt;<br>居右&lt;p align&#x3D;”right”&gt;文本&lt;&#x2F;p&gt;<br>居左&lt;p align&#x3D;”left”&gt;文本&lt;&#x2F;p&gt;</p>
+<h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h3><p>&lt;&#x2F;br&gt;或两个以上空格</p>
+<h3 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h3><p>使用 ~~ 将要删除文字夹起来。表示<del>删除</del></p>
+<h3 id="字体样式"><a href="#字体样式" class="headerlink" title="字体样式"></a>字体样式</h3><p>&lt;font color&#x3D;颜色编码 size&#x3D;大小 face&#x3D;”字体样式”&gt;文本&lt;&#x2F;font&gt;<br><font face="黑体">黑体字</font><br><font color=#0099ff size=4 face="黑体">color&#x3D;#0099ff size&#x3D;7 face&#x3D;”黑体”</font><br><font color=#00ffff size=5>color&#x3D;#00ffff</font><br><font color=red size=6>color&#x3D;red</font></p>
+<p>Size：支持 1 - 7 ，默认值 3<br>color：十六进制颜色值</p>
+<h3 id="待办事宜"><a href="#待办事宜" class="headerlink" title="待办事宜"></a>待办事宜</h3><p>横杠+空格+方括号+空格+文本 - [ ]方括号中大写的X来区分是否完成。<br>要注意空格空行。</p>
+<ul>
+<li><input disabled="" type="checkbox"> 学习</li>
+<li><input checked="" disabled="" type="checkbox"> 玩</li>
+</ul>
+<h3 id="彩蛋"><a href="#彩蛋" class="headerlink" title="彩蛋"></a>彩蛋</h3><p><span id = "letsgo">我在这里</span></p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
