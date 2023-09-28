@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>EFCore入门 | LiJianPeng&#39;S Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="LiJianPeng'S Blog">
+    <meta name="author" content="lijianpeng">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="LiJianPeng&#39;S Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a target="_blank" rel="noopener" href="http://clover.chat/" class="animsition-link">李星沅</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.chongbuluo.com/" class="animsition-link">虫部落</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">LiJianPeng'S Blog</a></li>
+                            <li class="nolink"><span>Never Give Up.</span></li>
+                            
+                            <li><a href="https://github.com/li-jianpeng" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://gitee.com/MrLiJianPeng" title="Gitee" target="_blank"><i class="icon-gitee"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2023-09-23T07:18:28.000Z" itemprop="datePublished">
+          2023-09-23
+      </time>
+    
+</span>
+                <h1>EFCore入门</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>EF Core全称Entity Framework Core.EF Core主要以代码优先的方法为目标，很少支持数据库优先的方法，因为EF Core不支持可视化数据库模型设计器或向导</p>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="Nuget-包"><a href="#Nuget-包" class="headerlink" title="Nuget 包"></a>Nuget 包</h3><p>管理Nuget包中添加项目所使用的数据库，大致名称为Microsoft.EntityFrameworkCore.xxx</p>
+<h3 id="实体类"><a href="#实体类" class="headerlink" title="实体类"></a>实体类</h3><p>创建与数据库表结构大致一样的实体类，举例存在T_Students表，表中有Id、姓名、年龄，这三个字段，那么创建以下实体</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">Table(<span class="string">&quot;T_Students&quot;</span>)</span>] <span class="comment">//自处标明表名，必须与数据库中表名保持一致</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">T_Students</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Id &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span>? Name &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span>? age &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyDbContext</span> : <span class="title">DbContext</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> DbSet&lt;T_Students&gt; T_Students &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">override</span> <span class="keyword">void</span> <span class="title">OnConfiguring</span>(<span class="params">DbContextOptionsBuilder optionsBuilder</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        optionsBuilder.UseSqlServer(<span class="string">&quot;连接字符串&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="自动生成模型"><a href="#自动生成模型" class="headerlink" title="自动生成模型"></a>自动生成模型</h3><p>微软官方提供了自动生成模型的方法，参考<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/ef/core/managing-schemas/scaffolding/?tabs=dotnet-core-cli">这里</a><br>以下步骤以VS用法为例<br>1.首先添加名为 <strong>Microsoft.EntityFrameworkCore.Design</strong> 的NuGet包<br>2.打开vs终端（工具-NuGet管理-控制台），输入：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Scaffold-DbContext <span class="string">&#x27;连接字符串&#x27;</span> Microsoft.EntityFrameworkCore.SqlServer </span><br></pre></td></tr></table></figure>
+<p>对于 SQL Server 或 Azure SQL，请使用 Microsoft.EntityFrameworkCore.SqlServer<br><img src="/images/Scaffold-DbContext.png" alt="Scaffold-DbContext"><br>上面这种提示那么就是成功了<br>**注：步骤2在控制台中如果报错提示无法识别命令’Scaffold-DbContext’，添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Microsoft.EntityFrameworkCore.Tools</span><br></pre></td></tr></table></figure>
+<p>NuGet包可解决**</p>
+<h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p>在EfCore中保存有 <strong>SaveChanges()</strong> 与 <strong>SaveChangesAsync()</strong> 两种方法<br>前者保存时是同步的，会阻塞当前线程，当有处理大量数据时候，可能会导致程序的性能问题，而后者是异步方法，会开启一个新的线程来做这些操作<br>使用await来等待异步操作执行完成</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> async Task <span class="title function_">Add</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//方法一</span></span><br><span class="line">    using (<span class="type">MyDbContext</span> <span class="variable">context</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyDbContext</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        context.Add(<span class="keyword">new</span> <span class="title class_">T_Students</span> &#123; Name = <span class="string">&quot;张三&quot;</span>,age = <span class="number">21</span> &#125;);</span><br><span class="line">        await context.SaveChangesAsync();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//方法二</span></span><br><span class="line">    <span class="type">MyDbContext</span> <span class="variable">context</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MyDbContext</span>();</span><br><span class="line">    <span class="type">var</span> <span class="variable">s</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">T_Students</span>();</span><br><span class="line">    s.Name = <span class="string">&quot;李四&quot;</span>;</span><br><span class="line">    s.age = <span class="number">22</span>;</span><br><span class="line">    context.T_Students.Add(s);</span><br><span class="line">    await context.SaveChangesAsync();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="删除、修改"><a href="#删除、修改" class="headerlink" title="删除、修改"></a>删除、修改</h3><p><del>EFCore的修改与删除都是先吧数据对象查询出来在进行操作，效率低，目前官方暂时没有支持高效的批量Update、Delete</del><br>有一个开源的批量修改删除项目可以参考<a target="_blank" rel="noopener" href="https://github.com/yangzhongke/Zack.EFCore.Batch">Zack.EFCore.Batch</a><br>在EFCore 7中，微软官方已经开始支持批量修改以及批量删除的操作   </p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">async</span> Task <span class="title">GetList</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> context=<span class="keyword">new</span> MyDbContext();</span><br><span class="line">    <span class="comment">//EFCore7之后支持的新批量删除方法</span></span><br><span class="line">    <span class="keyword">await</span> context.T_Students.Where(a =&gt; a.Id == <span class="number">1</span>).ExecuteDeleteAsync();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在之前的版本中，只能用旧方法来删除</span></span><br><span class="line">    <span class="keyword">var</span> s = context.T_Students.Where(a =&gt; a.Id == <span class="number">1</span>).FirstOrDefault();</span><br><span class="line">    context.T_Students.Remove(s);</span><br><span class="line">    <span class="keyword">await</span> context.SaveChangesAsync();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//EFCore7之后支持的新批量修改方法</span></span><br><span class="line">    <span class="keyword">await</span> context.T_Students.Where(a =&gt; a.Id==<span class="number">1</span>).ExecuteUpdateAsync(a =&gt; a.SetProperty(aa =&gt; aa.Name, aa =&gt; <span class="string">&quot;张三&quot;</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在之前的版本中，只能用旧方法来更新</span></span><br><span class="line">    <span class="keyword">var</span> s2 = context.T_Students.Where(a =&gt; a.Id == <span class="number">1</span>).FirstOrDefault();</span><br><span class="line">    s2.Name = <span class="string">&quot;王五&quot;</span>;</span><br><span class="line">    <span class="keyword">await</span> context.SaveChangesAsync();<span class="comment">//修改</span></span><br><span class="line"></span><br><span class="line">       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><p>DbSet有实现 <strong>IEnumberable<T></strong> 接口，因此可以使用Linq来更为方便的进行数据库操作，EFCore会将Linq转换为sql语句</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">async</span> Task <span class="title">GetList</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">var</span> context = <span class="keyword">new</span> MyDbContext();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> SList1 = <span class="keyword">await</span> context.T_Students.ToListAsync();<span class="comment">//查询全部</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> SList2 = <span class="keyword">await</span> context.T_Students.Where(a =&gt; a.age &lt; <span class="number">22</span>).ToListAsync();<span class="comment">//查询年龄小于22岁的全部数据</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> Student1 = context.T_Students.Where(a =&gt; a.Name == <span class="string">&quot;张三&quot;</span>).FirstOrDefault();<span class="comment">//查询姓名为张三的单个对象</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> SList4 = <span class="keyword">await</span> context.T_Students.OrderByDescending(a =&gt; a.age).Skip(<span class="number">5</span>).Take(<span class="number">3</span>).ToListAsync();<span class="comment">//根据年龄倒序排列后跳过前5条数据取前3条数据</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> SList5 = context.T_Students.GroupBy(a =&gt; a.age).ToList().Select(a =&gt; </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">var</span> count = a.Count();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span></span><br><span class="line">        &#123;</span><br><span class="line">            a.Key, <span class="comment">//age</span></span><br><span class="line">            count  <span class="comment">//当前年龄的人数</span></span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;).ToList();<span class="comment">//根据年龄分组，投影出新的集合</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2023/09/17/%E6%A6%82%E8%BF%B0/">
+        概述 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2021<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By lijianpeng. </br>All Rights Reserved.
+                </p>
+            </div>
+            <div class="social">
+                <ul>
+                  
+                  <li><a href="https://github.com/li-jianpeng" title="Github" target="_blank"><i class="icon-github"></i></a></li>&nbsp
+                  
+                  
+                  <li><a href="https://gitee.com/MrLiJianPeng" title="Gitee" target="_blank"><i class="icon-gitee"></i></a></li>
+                  
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
