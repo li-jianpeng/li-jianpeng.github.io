@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>存储过程 | LiJianPeng&#39;S Blog</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="LiJianPeng'S Blog">
+    <meta name="author" content="lijianpeng">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/Logo.png" type="image/png">
+
+    <link rel="alternate" href="/atom.xml" title="LiJianPeng&#39;S Blog" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_blank" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/" target="_blank" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a target="_blank" rel="noopener" href="http://clover.chat/" class="animsition-link">李星沅</a></li>
+                    
+                    <li><a target="_blank" rel="noopener" href="https://www.chongbuluo.com/" class="animsition-link">虫部落</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">LiJianPeng'S Blog</a></li>
+                            <li class="nolink"><span>Never Give Up.</span></li>
+                            
+                            <li><a href="https://github.com/li-jianpeng" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://gitee.com/MrLiJianPeng" title="Gitee" target="_blank"><i class="icon-gitee"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2023-10-24T13:03:55.000Z" itemprop="datePublished">
+          2023-10-24
+      </time>
+    
+</span>
+                <h1>存储过程</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h2 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h2><p>存储过程（Stored Procedure），是由一系列SQL语句构成完成一定的功能的程序方法，通过流程控制和SQL语句组成。<br>存储过程是数据库中的一个重要对象，在数据量特别庞大的情况下利用存储过程提高效率，一次编译后永久有效<br><img src="/images/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E5%88%86%E7%B1%BB.png" alt="存储过程" title="存储过程分类">   </p>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><p>创建存储过程前确定要实现什么功能，存储过程的调用可以是无参的也可以是有参的，可以有返回值也可以没有</p>
+<h3 id="不带参数"><a href="#不带参数" class="headerlink" title="不带参数"></a>不带参数</h3><pre><code class="sql">create procedure 查询全部签到记录
+as
+begin
+select * from T_QianDaoLog
+end
+</code></pre>
+<p>执行完成之后可以在 <strong>数据库-可编程性-存储过程</strong> 中找到<br><img src="/images/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E5%AD%98%E6%94%BE%E4%BD%8D%E7%BD%AE.png" alt="存储过程存放位置" title="存储过程存放位置"></p>
+<h3 id="带参数"><a href="#带参数" class="headerlink" title="带参数"></a>带参数</h3><pre><code class="sql">create proc 根据UserId和Month查询
+@UserId int,
+@Month int
+as 
+begin
+select * from T_QianDaoLog where UserId=@UserId and QianDaoMonth=@Month
+end
+</code></pre>
+<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><p>调用无参存储过程</p>
+<pre><code class="sql">execute 查询全部签到记录  //可以将execute简化为exec
+</code></pre>
+<p>调用有参存储过程</p>
+<pre><code class="sql">exec 根据UserId和Month查询 1,5
+</code></pre>
+<p>调用有参数的存储过程，可以同时写出参数名称赋值，</p>
+<pre><code class="sql">exec 根据UserId和Month查询 @UserId=1,@Month=5
+</code></pre>
+<p>此类写法必须要与存储过程中的参数名称保持一致，否则会报错   </p>
+<p>执行以后效果为下面这种<br><img src="/images/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" alt="存储过程运行结果" title="存储过程运行结果"></p>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><pre><code class="sql">alter proc 你想修改的某个已存在的存储过程的名称
+... //如果有参数可以增加参数
+as begin
+... //这里写具体的sql语句
+end
+</code></pre>
+<p>执行之后你所修改的的存储过程内容就会变更</p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><pre><code class="sql">drop proc 你想删除的某个已存在的存储过程的名称
+</code></pre>
+<p>执行之后，你所选择的这个存储过程就被删掉了</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>在编写存储过程方法时，不能其中删除另一个存储过程，只能调用另一个存储过程<br>调用存储过程的声明词（create proc,alter proc…）在SQLServer中不区分大小写，但调用存储过程时，存储过程名称需要严格保持一致</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/2023/09/23/EFCore%E5%85%A5%E9%97%A8/">
+        EFCore入门 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2021<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By lijianpeng. </br>All Rights Reserved.
+                </p>
+            </div>
+            <div class="social">
+                <ul>
+                  
+                  <li><a href="https://github.com/li-jianpeng" title="Github" target="_blank"><i class="icon-github"></i></a></li>&nbsp
+                  
+                  
+                  <li><a href="https://gitee.com/MrLiJianPeng" title="Gitee" target="_blank"><i class="icon-gitee"></i></a></li>
+                  
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
